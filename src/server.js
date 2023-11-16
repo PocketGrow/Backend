@@ -7,6 +7,7 @@ const prisma = require("./util/prisma.js");
 const port = process.env.PORT;
 
 app.use(cors());
+app.use(express.json());
 
 app.get("/test-all", async (req, res) => {
   const users = await prisma.user.findMany({
