@@ -10,13 +10,52 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model TestModel {
-  id   Int     @id @default(autoincrement())
-  name String? @db.VarChar(255)
+model User {
+  id             Int?     @unique @default(autoincrement())
+  email          String   @unique
+  hashedPassword String
+  fullname       String
+  dateOfBirth    DateTime
+  expense        Expense[]
+  income         Income[]
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  name  String? @db.VarChar(255)
-  email String  @unique @db.VarChar(255)
+model Expense {
+  id      Int?    @unique @default(autoincrement())
+  name    String?
+  nominal Int?
+  date    DateTime?
+
+  userId  Int     @unique
+  user    User    @relation(fields: [userId], references: [id])
+  expenseIncomeCategory ExpenseIncomeCategory[]
+}
+
+model Income {
+  id      Int?    @unique @default(autoincrement())
+  name    String?
+  nominal Int?
+  date    DateTime?
+
+  userId  Int     @unique
+  user    User    @relation(fields: [userId], references: [id])
+  expenseIncomeCategory ExpenseIncomeCategory[]
+}
+
+model ExpenseIncomeCategory {
+  id         Int        @unique @default(autoincrement())
+  name       String?
+
+  expenseId  Int        @unique
+  expense    Expense    @relation(fields: [expenseId], references: [id])
+
+  incomeId   Int        @unique
+  income     Income     @relation(fields: [incomeId], references: [id])
+}
+
+model News {
+  Id        Int     @unique @default(autoincrement())
+  Title     String?
+  Content   String?
+  HeaderImg String?
 }
