@@ -10,52 +10,57 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model TestModel {
+  id   Int     @id @default(autoincrement())
+  name String? @db.VarChar(255)
+}
+
 model User {
-  id             Int?     @unique @default(autoincrement())
-  email          String   @unique
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
   hashedPassword String
   fullname       String
-  dateOfBirth    DateTime
+  dateOfBirth    DateTime?
   expense        Expense[]
   income         Income[]
 }
 
 model Expense {
-  id      Int?    @unique @default(autoincrement())
-  name    String?
-  nominal Int?
-  date    DateTime?
+  id      Int      @id @default(autoincrement())
+  name    String
+  nominal Int
+  date    DateTime
 
-  userId  Int     @unique
-  user    User    @relation(fields: [userId], references: [id])
-  expenseIncomeCategory ExpenseIncomeCategory[]
+  userId Int  @unique
+  user   User @relation(fields: [userId], references: [id])
+
+  expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
+  expenseIncomeCategoryId Int
 }
 
 model Income {
-  id      Int?    @unique @default(autoincrement())
-  name    String?
-  nominal Int?
-  date    DateTime?
+  id      Int      @id @default(autoincrement())
+  name    String
+  nominal Int
+  date    DateTime
 
-  userId  Int     @unique
-  user    User    @relation(fields: [userId], references: [id])
-  expenseIncomeCategory ExpenseIncomeCategory[]
+  userId Int  @unique
+  user   User @relation(fields: [userId], references: [id])
+
+  expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
+  expenseIncomeCategoryId Int
 }
 
 model ExpenseIncomeCategory {
-  id         Int        @unique @default(autoincrement())
-  name       String?
-
-  expenseId  Int        @unique
-  expense    Expense    @relation(fields: [expenseId], references: [id])
-
-  incomeId   Int        @unique
-  income     Income     @relation(fields: [incomeId], references: [id])
+  id      Int       @id @default(autoincrement())
+  name    String
+  Expense Expense[]
+  Income  Income[]
 }
 
 model News {
-  Id        Int     @unique @default(autoincrement())
-  Title     String?
-  Content   String?
+  Id        Int     @id @default(autoincrement())
+  Title     String
+  Content   String
   HeaderImg String?
 }
