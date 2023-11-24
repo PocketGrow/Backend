@@ -8,7 +8,8 @@
     "dev": "npx nodemon src/server.js",
     "start": "node src/server.js",
     "migrate-dev": "npx prisma migrate dev",
-    "generate": "npx prisma generate"
+    "generate": "npx prisma generate",
+    "generate-jwt-secret": "node -e \"console.log(require('crypto').randomBytes(256).toString('base64'));\""
   },
   "author": "",
   "license": "ISC",

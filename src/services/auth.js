@@ -1,8 +1,12 @@
-const prisma = require("../util/prisma");
-const passport = require("../util/passportClient");
+const jwt = require("jsonwebtoken");
 
-const login = async (username, password) => {
-  return users;
+const secretKey = process.env.JWT_SECRET;
+
+const createJWT = (user) => {
+  const filteredField = { email: user.email };
+  const token = jwt.sign(filteredField, secretKey, { expiresIn: "1h" });
+
+  return token;
 };
 
-module.exports = { login };
+module.exports = { createJWT };

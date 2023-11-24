@@ -1,4 +1,4 @@
-const prisma = require("../util/prisma");
+const prisma = require("../utils/prisma");
 
 const testAll = async () => {
   const users = await prisma.testModel.findMany({
