@@ -14,7 +14,8 @@ const DefineJWTStrategy = new JWTStrategy(
     secretOrKey: secretKey,
   },
   async (jwtPayload, done) => {
-    const user = { email: jwtPayload.email };
+    const { id, email, fullname } = jwtPayload;
+    const user = { id, email, fullname };
 
     if (user) {
       return done(null, user);
