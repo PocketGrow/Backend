@@ -6,6 +6,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const secretKey = process.env.JWT_SECRET;
 
 const userService = require("../services/user");
+const authService = require("../services/auth");
 
 const DefineJWTStrategy = new JWTStrategy(
   {
@@ -52,11 +53,22 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
 );
 
 const DefineLocalLoginStrategy = new LocalStrategy(
-  { usernameField: "email", passwordField: "password" },
-  async (username, password, done) => {
+  {
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true,
+  },
+  async (req, username, password, done) => {
     try {
-      const email = username;
-      return done(null, { email, password });
+      const { email, password } = req.body;
+
+      const { user, message } = await authService.logIn(email, password);
+
+      if (!user) {
+        return done(null, null, { message });
+      }
+
+      return done(null, user);
     } catch (error) {
       return done(error);
     }
