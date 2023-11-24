@@ -8,14 +8,21 @@
     "dev": "npx nodemon src/server.js",
     "start": "node src/server.js",
     "migrate-dev": "npx prisma migrate dev",
-    "generate": "npx prisma generate"
+    "generate": "npx prisma generate",
+    "studio": "npx prisma studio",
+    "generate-jwt-secret": "node -e \"console.log(require('crypto').randomBytes(256).toString('base64'));\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.6.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
