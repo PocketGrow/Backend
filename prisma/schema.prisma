@@ -16,47 +16,34 @@ model TestModel {
 }
 
 model Users {
-  id             Int       @id @default(autoincrement())
-  email          String    @unique
+  id             Int            @id @default(autoincrement())
+  email          String         @unique
   hashedPassword String
   passwordSalt   String
   fullname       String
   dateOfBirth    DateTime?
-  expense        Expense[]
-  income         Income[]
+  Transactions   Transactions[]
 }
 
-model Expense {
+model Transactions {
   id      Int      @id @default(autoincrement())
   name    String
   nominal Int
   date    DateTime
 
-  userId Int   @unique
-  user   Users @relation(fields: [userId], references: [id])
+  type TransactionType
 
-  expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
-  expenseIncomeCategoryId Int
+  category              TransactionCategory @relation(fields: [transactionCategoryId], references: [id])
+  transactionCategoryId Int
+
+  user    Users @relation(fields: [usersId], references: [id])
+  usersId Int
 }
 
-model Income {
-  id      Int      @id @default(autoincrement())
-  name    String
-  nominal Int
-  date    DateTime
-
-  userId Int   @unique
-  user   Users @relation(fields: [userId], references: [id])
-
-  expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
-  expenseIncomeCategoryId Int
-}
-
-model ExpenseIncomeCategory {
-  id      Int       @id @default(autoincrement())
-  name    String
-  Expense Expense[]
-  Income  Income[]
+model TransactionCategory {
+  id           Int            @id @default(autoincrement())
+  name         String
+  Transactions Transactions[]
 }
 
 model News {
@@ -64,4 +51,9 @@ model News {
   Title     String
   Content   String
   HeaderImg String?
+}
+
+enum TransactionType {
+  EXPENSE
+  INCOME
 }
