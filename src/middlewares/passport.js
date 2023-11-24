@@ -5,6 +5,8 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const secretKey = process.env.JWT_SECRET;
 
+const userService = require("../services/user");
+
 const DefineJWTStrategy = new JWTStrategy(
   {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -17,6 +19,34 @@ const DefineJWTStrategy = new JWTStrategy(
       return done(null, user);
     } else {
       return done(null, false, { message: "User not found" });
+    }
+  }
+);
+
+const DefineLocalRegisterStrategy = new LocalStrategy(
+  {
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true,
+  },
+  async (req, username, password, done) => {
+    try {
+      const { email, password, fullname, dateOfBirth } = req.body;
+
+      const { user, error } = await userService.createUser(
+        email,
+        password,
+        fullname,
+        dateOfBirth
+      );
+
+      if (!user) {
+        return done(null, null, { error });
+      }
+
+      return done(null, user);
+    } catch (error) {
+      return done(error);
     }
   }
 );
@@ -39,6 +69,7 @@ const authenticateJWTToken = passport.authenticate("jwt", { session: false });
 module.exports = {
   // Strategy
   DefineJWTStrategy,
+  DefineLocalRegisterStrategy,
   DefineLocalLoginStrategy,
 
   // Middleware

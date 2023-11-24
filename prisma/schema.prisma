@@ -15,10 +15,11 @@ model TestModel {
   name String? @db.VarChar(255)
 }
 
-model User {
+model Users {
   id             Int       @id @default(autoincrement())
   email          String    @unique
   hashedPassword String
+  passwordSalt   String
   fullname       String
   dateOfBirth    DateTime?
   expense        Expense[]
@@ -31,8 +32,8 @@ model Expense {
   nominal Int
   date    DateTime
 
-  userId Int  @unique
-  user   User @relation(fields: [userId], references: [id])
+  userId Int   @unique
+  user   Users @relation(fields: [userId], references: [id])
 
   expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
   expenseIncomeCategoryId Int
@@ -44,8 +45,8 @@ model Income {
   nominal Int
   date    DateTime
 
-  userId Int  @unique
-  user   User @relation(fields: [userId], references: [id])
+  userId Int   @unique
+  user   Users @relation(fields: [userId], references: [id])
 
   expenseIncomeCategory   ExpenseIncomeCategory @relation(fields: [expenseIncomeCategoryId], references: [id])
   expenseIncomeCategoryId Int

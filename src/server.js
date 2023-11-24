@@ -8,6 +8,7 @@ const routes = require("./routes");
 const {
   DefineJWTStrategy,
   DefineLocalLoginStrategy,
+  DefineLocalRegisterStrategy,
 } = require("./middlewares/passport");
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(passport.initialize());
 passport.use(DefineJWTStrategy);
 passport.use("login", DefineLocalLoginStrategy);
+passport.use("register", DefineLocalRegisterStrategy);
 
 app.use("/api", routes);
 
