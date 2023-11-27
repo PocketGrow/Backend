@@ -3,8 +3,10 @@ const express = require("express");
 const cors = require("cors");
 
 const passport = require("passport");
+const swaggerUi = require("swagger-ui-express");
 
 const routes = require("./routes");
+const docs = require("./docs");
 const {
   DefineJWTStrategy,
   DefineLocalLoginStrategy,
@@ -20,6 +22,8 @@ app.use(passport.initialize());
 passport.use(DefineJWTStrategy);
 passport.use("login", DefineLocalLoginStrategy);
 passport.use("register", DefineLocalRegisterStrategy);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(docs));
 
 app.use("/api", routes);
 
