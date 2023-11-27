@@ -10,7 +10,8 @@
     "migrate-dev": "npx prisma migrate dev",
     "generate": "npx prisma generate",
     "studio": "npx prisma studio",
-    "generate-jwt-secret": "node -e \"console.log(require('crypto').randomBytes(256).toString('base64'));\""
+    "generate-jwt-secret": "node -e \"console.log(require('crypto').randomBytes(256).toString('base64'));\"",
+    "docker-dev": "docker-compose -f docker-compose-dev.yml up -d --force-recreate"
   },
   "author": "",
   "license": "ISC",
