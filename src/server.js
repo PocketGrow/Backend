@@ -3,8 +3,10 @@ const express = require("express");
 const cors = require("cors");
 
 const passport = require("passport");
+const swaggerUi = require("swagger-ui-express");
 
 const routes = require("./routes");
+const docs = require("./docs");
 const {
   DefineJWTStrategy,
   DefineLocalLoginStrategy,
@@ -21,11 +23,7 @@ passport.use(DefineJWTStrategy);
 passport.use("login", DefineLocalLoginStrategy);
 passport.use("register", DefineLocalRegisterStrategy);
 
-// SWAGGER
-const YAML = require("yamljs");
-const swaggerUi = require("swagger-ui-express");
-const apiDocumentation = YAML.load("src/api-docs.yaml");
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(apiDocumentation));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(docs));
 
 app.use("/api", routes);
 
