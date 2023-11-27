@@ -7,10 +7,12 @@ const authService = require("../services/auth");
 router.post("/register", async (req, res, next) => {
   passport.authenticate("register", (error, user, info) => {
     if (error) {
+      console.log(error);
       return res.status(400).send({ msg: "An error just occured" });
     }
 
     if (!user) {
+      console.log(error);
       return res.status(400).send({ msg: info });
     }
 
@@ -24,10 +26,12 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   passport.authenticate("login", (error, user, info) => {
     if (error) {
+      console.log(error);
       return res.status(400).send({ msg: "An error just occured" });
     }
 
     if (!user) {
+      console.log(error);
       return res.status(401).send({ msg: info });
     }
 
