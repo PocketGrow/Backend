@@ -21,6 +21,12 @@ passport.use(DefineJWTStrategy);
 passport.use("login", DefineLocalLoginStrategy);
 passport.use("register", DefineLocalRegisterStrategy);
 
+// SWAGGER
+const YAML = require("yamljs");
+const swaggerUi = require("swagger-ui-express");
+const apiDocumentation = YAML.load("src/api-docs.yaml");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(apiDocumentation));
+
 app.use("/api", routes);
 
 app.listen(port, () => {
