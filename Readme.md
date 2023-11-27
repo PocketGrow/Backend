@@ -5,7 +5,7 @@
 - Express.js
 - Prisma
 
-# REST API PocketGrow
+## REST API PocketGrow
 
 Bangkit Academy Capstone Project
 
@@ -13,7 +13,7 @@ PocketGrow is an app.
 
 Features:
 
-- [] Authentication : Register, Login
+- [ ] Authentication : Register, Login
 <!-- - [] News Session
 - [] CRUD Transaction (Income-Expense)
 - [] Net Worth Projection -->
