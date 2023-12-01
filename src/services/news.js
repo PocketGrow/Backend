@@ -12,16 +12,16 @@ const getNewsByID = async (id) => {
   return news;
 };
 
-const getNewsRecommendations = async (randomNewsIds) => {
+const getNewsRecommendations = async () => {
   const recommendations = await prisma.news.findMany({
-    where: { id: { in: randomNewsIds } },
+    take: 3,
+    orderBy: { createDate: 'desc' },
   });
-
   return recommendations;
 };
 
 module.exports = {
   getAllNews,
   getNewsByID,
-  getNewsRecommendations,
+  getNewsRecommendations
 }
