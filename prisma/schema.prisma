@@ -47,13 +47,13 @@ model TransactionCategory {
 }
 
 model News {
-  id          Int         @id @default(autoincrement())
-  title       String
-  content     String
-  headerImg   String?
-  author      String?
-  source      String?
-  createDate  DateTime    @default(now())
+  id         Int       @id @default(autoincrement())
+  title      String
+  content    String
+  headerImg  String?
+  author     String?
+  source     String?
+  createDate DateTime? @default(now())
 }
 
 enum TransactionType {

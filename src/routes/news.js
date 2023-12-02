@@ -3,36 +3,35 @@ const router = require("express").Router();
 const { authenticateJWTToken } = require("../middlewares/passport");
 const newsService = require("../services/news");
 
-router.get("/", authenticateJWTToken, async (req, res, next) => {
-  const allNews = await newsService.getAllNews();
-  res.json(allNews);
+router.get("", authenticateJWTToken, async (req, res, next) => {
+  const news = await newsService.getAllNews();
+
+  if (news.length === 0) {
+    return res.error("No news found", 404);
+  }
+
+  return res.success({ news });
 });
 
-router.get(
-  "/recommendations/",
-  authenticateJWTToken,
-  async (req, res, next) => {
-    const newsRecommendations = await newsService.getNewsRecommendations();
+router.get("/recommendations", authenticateJWTToken, async (req, res, next) => {
+  const newsRecommendations = await newsService.getNewsRecommendations();
 
-    if (!newsRecommendations || newsRecommendations.length === 0) {
-      res.status(404).json({ message: "No news recommendations found" });
-      return;
-    }
-
-    res.json(newsRecommendations);
+  if (!newsRecommendations || newsRecommendations.length === 0) {
+    return res.error("No news recommendations found", 404);
   }
-);
+
+  return res.success({ news: newsRecommendations });
+});
 
 router.get("/:id", authenticateJWTToken, async (req, res, next) => {
   const { id } = req.params;
   const news = await newsService.getNewsByID(id);
 
   if (!news) {
-    res.status(404).json({ message: "News not found" });
-    return;
+    return res.error("News not found", 404);
   }
 
-  res.json(news);
+  return res.success({ news });
 });
 
 module.exports = router;
