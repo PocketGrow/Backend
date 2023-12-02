@@ -15,7 +15,7 @@ const getNewsByID = async (id) => {
 const getNewsRecommendations = async () => {
   const recommendations = await prisma.news.findMany({
     take: 3,
-    orderBy: { createDate: 'desc' },
+    orderBy: { createDate: "desc" },
   });
   return recommendations;
 };
@@ -23,5 +23,5 @@ const getNewsRecommendations = async () => {
 module.exports = {
   getAllNews,
   getNewsByID,
-  getNewsRecommendations
-}
+  getNewsRecommendations,
+};
