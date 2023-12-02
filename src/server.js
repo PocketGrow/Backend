@@ -12,6 +12,7 @@ const {
   DefineLocalLoginStrategy,
   DefineLocalRegisterStrategy,
 } = require("./middlewares/passport");
+const responseFormatter = require("./middlewares/responseFormatter");
 
 const app = express();
 const port = process.env.PORT;
@@ -22,6 +23,8 @@ app.use(passport.initialize());
 passport.use(DefineJWTStrategy);
 passport.use("login", DefineLocalLoginStrategy);
 passport.use("register", DefineLocalRegisterStrategy);
+
+app.use(responseFormatter);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(docs));
 

@@ -9,7 +9,7 @@ const createUser = async (email, password, fullname, dateOfBirth) => {
     },
   });
 
-  if (foundUser) return { user: null, error: "User already exist" };
+  if (foundUser) return { user: null, message: "User already exist" };
 
   const salt = await bcrypt.genSalt();
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -29,7 +29,7 @@ const createUser = async (email, password, fullname, dateOfBirth) => {
     },
   });
 
-  return { user: newUser, error: null };
+  return { user: newUser, message: null };
 };
 
 module.exports = {
