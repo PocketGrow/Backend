@@ -8,18 +8,18 @@ router.post("/register", async (req, res, next) => {
   passport.authenticate("register", (error, user, info) => {
     if (error) {
       console.log(error);
-      return res.status(400).send({ msg: "An error just occured" });
+      return res.error("An error just occured", 400);
     }
 
     if (!user) {
       console.log(error);
-      return res.status(400).send({ msg: info });
+      return res.error(info.message, 400);
     }
 
     const token = authService.createJWT(user);
 
     const { email, fullname } = user;
-    res.send({ msg: "Login success", data: { token, email, fullname } });
+    return res.success({ token, email, fullname }, "Register success");
   })(req, res, next);
 });
 
@@ -27,18 +27,18 @@ router.post("/login", async (req, res, next) => {
   passport.authenticate("login", (error, user, info) => {
     if (error) {
       console.log(error);
-      return res.status(400).send({ msg: "An error just occured" });
+      return res.error("An error just occured", 400);
     }
 
     if (!user) {
       console.log(error);
-      return res.status(401).send({ msg: info });
+      return res.error(info.message, 401);
     }
 
     const token = authService.createJWT(user);
 
     const { email, fullname } = user;
-    res.send({ msg: "Login success", data: { token, email, fullname } });
+    return res.success({ token, email, fullname }, "Login success");
   })(req, res, next);
 });
 
