@@ -13,10 +13,10 @@ PocketGrow is an app.
 
 Features:
 
-- [ ] Authentication : Register, Login
-<!-- - [] News Session
-- [] CRUD Transaction (Income-Expense)
-- [] Net Worth Projection -->
+- [X] Authentication : Register, Login
+- [X] News Session
+- [X] Income-Expense Tracker
+<!-- - [] Net Worth Projection -->
 
 
 ## Install
