@@ -9,5 +9,5 @@ module.exports = {
     ...servers,
     ...components,
     ...tags,
-    ...auth
+    ...auth,
 }

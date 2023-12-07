@@ -10,6 +10,6 @@ module.exports = {
     },
     externalDocs: {
 		"description": "Github Repo",
-		"url": "https://github.com/mune-kyun/PocketGrow-BE"
+		"url": "https://github.com/PocketGrow"
 	}
 }

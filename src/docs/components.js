@@ -30,6 +30,71 @@ module.exports = {
 				"xml": {
 					"name": "user"
 				}
+			},
+			"News": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64",
+						"example": 10
+					},
+					"title": {
+						"type": "string",
+						"example": "This is News Title."
+					},
+					"headerImg": {
+						"type": "string",
+						"example": "image-url.com"
+					},
+					"author": {
+						"type": "string",
+						"example": "John James"
+					},
+					"source": {
+						"type": "string",
+						"example": "Wikipedia"
+					},
+				},
+				"xml": {
+					"name": "user"
+				}
+			},
+			"Transaction": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64",
+						"example": 10
+					},
+					"name": {
+						"type": "string",
+						"example": "Laundry"
+					},
+					"nominal": {
+						"type": "integer",
+						"example": 50000
+					},
+					"date": {
+						"type": "string",
+						"format": "date",
+						"example": "2023-12-01T23:00:28.934Z"
+					},
+					"transactionCategoryId": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+					"userId": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+				},
+				"xml": {
+					"name": "user"
+				}
 			}
 		},
 		"requestBodies": {

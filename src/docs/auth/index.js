@@ -3,10 +3,10 @@ const login = require('./login');
 
 module.exports = {
     paths: {
-        "/auth/register": {
+        "api/auth/register": {
             ...register
         },
-        "/auth/login": {
+        "api/auth/login": {
             ...login
         }
     }

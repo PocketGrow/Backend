@@ -2,7 +2,12 @@ module.exports = {
     "tags": [
 		{
 			"name": "Auth",
-			"description": "Operations about auth"
+		},
+		{
+			"name": "News",
+		},
+		{
+			"name": "Transaction",
 		}
 	]
 }
