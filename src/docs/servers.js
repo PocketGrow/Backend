@@ -1,8 +1,8 @@
 module.exports = {
-    "servers": [
-		{
-			"url": "localhost",
-            "description": "local server"
-		}
-	]
-}
+  servers: [
+    {
+      url: "localhost",
+      description: "local server",
+    },
+  ],
+};

@@ -1,13 +1,13 @@
-const register = require('./register');
-const login = require('./login');
+const register = require("./register");
+const login = require("./login");
 
 module.exports = {
-    paths: {
-        "api/auth/register": {
-            ...register
-        },
-        "api/auth/login": {
-            ...login
-        }
-    }
-}
+  paths: {
+    "api/auth/register": {
+      ...register,
+    },
+    "api/auth/login": {
+      ...login,
+    },
+  },
+};

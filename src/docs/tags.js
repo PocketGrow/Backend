@@ -1,13 +1,13 @@
 module.exports = {
-    "tags": [
-		{
-			"name": "Auth",
-		},
-		{
-			"name": "News",
-		},
-		{
-			"name": "Transaction",
-		}
-	]
-}
+  tags: [
+    {
+      name: "Auth",
+    },
+    {
+      name: "News",
+    },
+    {
+      name: "Transaction",
+    },
+  ],
+};

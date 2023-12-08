@@ -22,7 +22,7 @@ const DefineJWTStrategy = new JWTStrategy(
     } else {
       return done(null, false, { message: "User not found" });
     }
-  }
+  },
 );
 
 const DefineLocalRegisterStrategy = new LocalStrategy(
@@ -35,12 +35,7 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
     try {
       const { email, password, fullname, dateOfBirth } = req.body;
 
-      const { user, error } = await userService.createUser(
-        email,
-        password,
-        fullname,
-        dateOfBirth
-      );
+      const { user, error } = await userService.createUser(email, password, fullname, dateOfBirth);
 
       if (!user) {
         return done(null, null, { error });
@@ -50,7 +45,7 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
     } catch (error) {
       return done(error);
     }
-  }
+  },
 );
 
 const DefineLocalLoginStrategy = new LocalStrategy(
@@ -73,7 +68,7 @@ const DefineLocalLoginStrategy = new LocalStrategy(
     } catch (error) {
       return done(error);
     }
-  }
+  },
 );
 
 // Middleware to protect routes with JWT authentication

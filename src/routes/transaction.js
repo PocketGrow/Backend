@@ -12,7 +12,7 @@ router.get("", authenticateJWTToken, async (req, res, next) => {
     return res.error("No transaction found", 404);
   }
 
-  return res.success({ transaction});
+  return res.success({ transaction });
 });
 
 router.get("/:id", authenticateJWTToken, async (req, res, next) => {
@@ -23,19 +23,20 @@ router.get("/:id", authenticateJWTToken, async (req, res, next) => {
 
   if (!transaction) {
     return res.error("Transaction not found", 404);
-  };
+  }
 
   return res.success({ transaction });
 });
 
 router.post("", authenticateJWTToken, async (req, res, next) => {
-  const { name, nominal, date, type, transactionCategoryId } =  req.body;
+  const { name, nominal, date, type, transactionCategoryId } = req.body;
   const transaction = { name, nominal, date, type, transactionCategoryId };
-  
+
   const userId = req.user.id;
 
   const newTransaction = await transactionService.createTransaction({
-    ...transaction, userId
+    ...transaction,
+    userId,
   });
 
   return res.success({ transaction: newTransaction }, "Transaction has been added");
@@ -50,7 +51,7 @@ router.delete("/:id", authenticateJWTToken, async (req, res, next) => {
   if (!transaction) {
     return res.error("Transaction not found", 404);
   }
-  
+
   return res.success({ transaction }, "Transaction has been deleted");
 });
 

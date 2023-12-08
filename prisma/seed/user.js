@@ -13,7 +13,7 @@ const seedUser = async (prisma) => {
         fullname,
         dateOfBirth: new Date(dateOfBirth),
       };
-    })
+    }),
   );
 
   await prisma.users.createMany({

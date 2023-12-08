@@ -7,11 +7,7 @@ const swaggerUi = require("swagger-ui-express");
 
 const routes = require("./routes");
 const docs = require("./docs");
-const {
-  DefineJWTStrategy,
-  DefineLocalLoginStrategy,
-  DefineLocalRegisterStrategy,
-} = require("./middlewares/passport");
+const { DefineJWTStrategy, DefineLocalLoginStrategy, DefineLocalRegisterStrategy } = require("./middlewares/passport");
 const responseFormatter = require("./middlewares/responseFormatter");
 
 const app = express();
