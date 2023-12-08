@@ -1,48 +1,77 @@
 const prisma = require("../utils/prisma");
 
-const getAllTransactions = async () => {
-    const allTransactions = await prisma.transactions.findMany();
+const getAllTransactions = async (userId) => {
+    const allTransactions = await prisma.transactions.findMany({
+      where: {
+        usersId: parseInt(userId)
+      }
+    });
+
     return allTransactions;
 };
 
-const getTransactionById = async (id) => {
+const getTransactionById = async (id, userId) => {
     const transaction = await prisma.transactions.findUnique({
-      where: { id: parseInt(id) },
+      where: { 
+        id: parseInt(id),
+        usersId: userId,
+      },
     });
+
     return transaction;
 };
 
-const createTransaction = async ({name, nominal, date, type, transactionCategoryId, userId}) => {
-    const user = await prisma.users.findUnique({
-        where: {id: userId},
-    })
+const createTransaction = async ({ name, nominal, date, type, transactionCategoryId, userId }) => {
+  const category = await prisma.transactionCategory.findUnique({
+    where: { id: parseInt(transactionCategoryId) },
+  });
 
-    if (!user) return {user: null, message: 'User not found'};
+  const user = await prisma.users.findUnique({
+    where: {
+      id: userId
+    }
+  });
   
-    const category = await prisma.transactionCategory.findUnique({
-        where: { id: transactionCategoryId },
-    });
-
-    if (!category) return {category: null, message: 'Category not found'};
+  const newTransaction = await prisma.transactions.create({
+    data: {
+      name: name,
+      nominal: nominal,
+      date: date,
+      type: type,
+      category: {
+        connect: { id: category.id },
+      },
+      user: {
+        connect: { 
+          id: user.id },
+      },
+    },
+    include: {
+      category: {
+        select: {
+          name: true,
+        }
+      },
+      user: {
+        select: {
+          fullname: true,
+        }
+      }
+    }
+  });
   
-    const newTransaction = await prisma.transactions.create({
-        data: {
-          name,
-          nominal,
-          date,
-          type,
-          category: { connect: { id: transactionCategoryId } },
-          user: { connect: { id: userId } },
-        },
-    });
-
-    return newTransaction;
+  return newTransaction;
 };
 
-const deleteTransaction = async (id) => {
+
+const deleteTransaction = async (id, userId) => {
     const transaction = await prisma.transactions.delete({
-      where: { id: parseInt(id) },
+      where: { 
+        id: parseInt(id),
+        usersId: userId,
+      },
     });
+    
     return transaction;
 };
 

@@ -4,44 +4,54 @@ const { authenticateJWTToken } = require("../middlewares/passport");
 const transactionService = require("../services/transaction");
 
 router.get("", authenticateJWTToken, async (req, res, next) => {
-  const transaction = await transactionService.getAllTransactions();
+  const userId = req.user.id;
 
-  if (transaction.length === 0) {
+  const transaction = await transactionService.getAllTransactions(userId);
+
+  if (!transaction) {
     return res.error("No transaction found", 404);
   }
 
-  return res.success({ transaction });
+  return res.success({ transaction});
 });
 
 router.get("/:id", authenticateJWTToken, async (req, res, next) => {
+  const userId = req.user.id;
   const { id } = req.params;
-  const transaction = await transactionService.getTransactionById(id);
+
+  const transaction = await transactionService.getTransactionById(id, userId);
 
   if (!transaction) {
     return res.error("Transaction not found", 404);
-  }
+  };
 
   return res.success({ transaction });
 });
 
 router.post("", authenticateJWTToken, async (req, res, next) => {
-  const { name, nominal, date, type, transactionCategoryId, userId } = req.body;
-  const transaction = { name, nominal, date, type, transactionCategoryId, userId };
+  const { name, nominal, date, type, transactionCategoryId } =  req.body;
+  const transaction = { name, nominal, date, type, transactionCategoryId };
+  
+  const userId = req.user.id;
 
-  const newTransaction = await transactionService.createTransaction(transaction);
-    
-  return res.success({ transaction: newTransaction}, "Transaction has been added");
+  const newTransaction = await transactionService.createTransaction({
+    ...transaction, userId
+  });
+
+  return res.success({ transaction: newTransaction }, "Transaction has been added");
 });
 
 router.delete("/:id", authenticateJWTToken, async (req, res, next) => {
+  const userId = req.user.id;
   const { id } = req.params;
-  const transaction = await transactionService.deleteTransaction(id);
-  
+
+  const transaction = await transactionService.deleteTransaction(id, userId);
+
   if (!transaction) {
     return res.error("Transaction not found", 404);
   }
   
-  return res.success({ transaction });
+  return res.success({ transaction }, "Transaction has been deleted");
 });
 
 module.exports = router;
