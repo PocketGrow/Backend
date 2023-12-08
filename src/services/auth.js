@@ -35,4 +35,16 @@ const logIn = async (email, password) => {
   return { user: null, message: "Authentication failed" };
 };
 
-module.exports = { createJWT, logIn };
+const findUser = async (id, email, fullname) => {
+  const user = await prisma.users.findUnique({
+    where: {
+      id,
+      email,
+      fullname,
+    },
+  });
+
+  return user;
+};
+
+module.exports = { createJWT, logIn, findUser };

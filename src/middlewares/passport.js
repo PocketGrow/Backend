@@ -15,12 +15,16 @@ const DefineJWTStrategy = new JWTStrategy(
   },
   async (jwtPayload, done) => {
     const { id, email, fullname } = jwtPayload;
-    const user = { id, email, fullname };
+
+    if (!id || !email || !fullname)
+      return done(null, false, { message: "Unauthorized" });
+
+    const user = await authService.findUser(id, email, fullname);
 
     if (user) {
-      return done(null, user);
+      return done(null, { id, email, fullname });
     } else {
-      return done(null, false, { message: "User not found" });
+      return done(null, false, { message: "Unauthorized" });
     }
   },
 );
@@ -35,7 +39,7 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
     try {
       const { email, password, fullname, dateOfBirth } = req.body;
 
-      const { user, error } = await userService.createUser(
+      const { user, message } = await userService.createUser(
         email,
         password,
         fullname,
@@ -43,7 +47,7 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
       );
 
       if (!user) {
-        return done(null, null, { error });
+        return done(null, null, { message });
       }
 
       return done(null, user);
