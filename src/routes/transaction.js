@@ -39,7 +39,10 @@ router.post("", authenticateJWTToken, async (req, res, next) => {
     userId,
   });
 
-  return res.success({ transaction: newTransaction }, "Transaction has been added");
+  return res.success(
+    { transaction: newTransaction },
+    "Transaction has been added",
+  );
 });
 
 router.delete("/:id", authenticateJWTToken, async (req, res, next) => {

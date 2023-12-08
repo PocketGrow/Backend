@@ -21,9 +21,18 @@ const getTransactionById = async (id, userId) => {
   return transaction;
 };
 
-const createTransaction = async ({ name, nominal, date, type, transactionCategoryId, userId }) => {
+const createTransaction = async ({
+  name,
+  nominal,
+  date,
+  type,
+  transactionCategoryId,
+  userId,
+}) => {
   const category = await prisma.transactionCategory.findUnique({
-    where: { id: parseInt(transactionCategoryId) },
+    where: {
+      id: parseInt(transactionCategoryId),
+    },
   });
 
   const user = await prisma.users.findUnique({
@@ -39,7 +48,9 @@ const createTransaction = async ({ name, nominal, date, type, transactionCategor
       date: date,
       type: type,
       category: {
-        connect: { id: category.id },
+        connect: {
+          id: category.id,
+        },
       },
       user: {
         connect: {

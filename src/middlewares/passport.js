@@ -35,7 +35,12 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
     try {
       const { email, password, fullname, dateOfBirth } = req.body;
 
-      const { user, error } = await userService.createUser(email, password, fullname, dateOfBirth);
+      const { user, error } = await userService.createUser(
+        email,
+        password,
+        fullname,
+        dateOfBirth,
+      );
 
       if (!user) {
         return done(null, null, { error });
