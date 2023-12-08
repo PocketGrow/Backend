@@ -37,8 +37,8 @@ router.post("/login", async (req, res, next) => {
 
     const token = authService.createJWT(user);
 
-    const { id, email, fullname } = user;
-    return res.success({ token, id, email, fullname }, "Login success");
+    const { email, fullname } = user;
+    return res.success({ token, email, fullname }, "Login success");
   })(req, res, next);
 });
 
