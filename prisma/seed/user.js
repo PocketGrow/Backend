@@ -30,6 +30,12 @@ const data = [
     fullname: "test test",
     dateOfBirth: new Date(),
   },
+  {
+    email: "testtest@gmail.com",
+    password: "testtesttos",
+    fullname: "tos tos 1",
+    dateOfBirth: new Date(),
+  },
 ];
 
 module.exports = seedUser;

@@ -8,10 +8,6 @@ router.get("", authenticateJWTToken, async (req, res, next) => {
 
   const transaction = await transactionService.getAllTransactions(userId);
 
-  if (!transaction) {
-    return res.error("No transaction found", 404);
-  }
-
   return res.success({ transaction });
 });
 
