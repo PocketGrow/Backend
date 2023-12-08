@@ -13,7 +13,7 @@ const seedUser = async (prisma) => {
         fullname,
         dateOfBirth: new Date(dateOfBirth),
       };
-    })
+    }),
   );
 
   await prisma.users.createMany({
@@ -28,6 +28,12 @@ const data = [
     email: "testtest99@gmail.com",
     password: "testtest",
     fullname: "test test",
+    dateOfBirth: new Date(),
+  },
+  {
+    email: "testtest@gmail.com",
+    password: "testtesttos",
+    fullname: "tos tos 1",
     dateOfBirth: new Date(),
   },
 ];

@@ -1,8 +1,13 @@
 module.exports = {
-    "tags": [
-		{
-			"name": "Auth",
-			"description": "Operations about auth"
-		}
-	]
-}
+  tags: [
+    {
+      name: "Auth",
+    },
+    {
+      name: "News",
+    },
+    {
+      name: "Transaction",
+    },
+  ],
+};

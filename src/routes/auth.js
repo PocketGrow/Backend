@@ -8,11 +8,11 @@ router.post("/register", async (req, res, next) => {
   passport.authenticate("register", (error, user, info) => {
     if (error) {
       console.log(error);
-      return res.error("An error just occured", 400);
+      return res.error("An error just occured", 500);
     }
 
     if (!user) {
-      console.log(error);
+      console.log(info.message);
       return res.error(info.message, 400);
     }
 
@@ -27,11 +27,11 @@ router.post("/login", async (req, res, next) => {
   passport.authenticate("login", (error, user, info) => {
     if (error) {
       console.log(error);
-      return res.error("An error just occured", 400);
+      return res.error("An error just occured", 500);
     }
 
     if (!user) {
-      console.log(error);
+      console.log(info.message);
       return res.error(info.message, 401);
     }
 
