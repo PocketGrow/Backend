@@ -35,6 +35,10 @@ router.post("", authenticateJWTToken, async (req, res, next) => {
     userId,
   });
 
+  if (!newTransaction) {
+    return res.error("Wrong parameter", 400);
+  }
+
   return res.success(
     { transaction: newTransaction },
     "Transaction has been added",
