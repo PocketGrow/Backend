@@ -29,41 +29,45 @@ const createTransaction = async ({
   transactionCategoryId,
   userId,
 }) => {
-  const category = await prisma.transactionCategory.findUnique({
-    where: {
-      id: parseInt(transactionCategoryId),
-    },
-  });
+  try {
+    const category = await prisma.transactionCategory.findUnique({
+      where: {
+        id: parseInt(transactionCategoryId),
+      },
+    });
 
-  if (!category) return null;
+    if (!category) return null;
 
-  const newTransaction = await prisma.transactions.create({
-    data: {
-      name: name,
-      nominal: nominal,
-      date: date,
-      type: type,
-      category: {
-        connect: {
-          id: category.id,
+    const newTransaction = await prisma.transactions.create({
+      data: {
+        name: name,
+        nominal: nominal,
+        date: date,
+        type: type,
+        category: {
+          connect: {
+            id: category.id,
+          },
+        },
+        user: {
+          connect: {
+            id: userId,
+          },
         },
       },
-      user: {
-        connect: {
-          id: userId,
+      include: {
+        category: {
+          select: {
+            name: true,
+          },
         },
       },
-    },
-    include: {
-      category: {
-        select: {
-          name: true,
-        },
-      },
-    },
-  });
+    });
 
-  return newTransaction;
+    return newTransaction;
+  } catch (error) {
+    return null;
+  }
 };
 
 const deleteTransaction = async (id, userId) => {
