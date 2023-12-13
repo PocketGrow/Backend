@@ -4,6 +4,7 @@ services:
   postgres:
     image: postgres:latest
     container_name: capstone-dev-db-v2
+    restart: always
     environment:
       POSTGRES_DB: test33
       POSTGRES_USER: test
@@ -16,6 +17,9 @@ services:
 
   be:
     build: .
+    depends_on:
+      - postgres
+    restart: always
     env_file:
       - .docker.env
     ports:
