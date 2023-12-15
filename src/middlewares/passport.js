@@ -52,6 +52,7 @@ const DefineLocalRegisterStrategy = new LocalStrategy(
 
       return done(null, user);
     } catch (error) {
+      console.log(error);
       return done(error);
     }
   },
@@ -75,6 +76,7 @@ const DefineLocalLoginStrategy = new LocalStrategy(
 
       return done(null, user);
     } catch (error) {
+      console.log(error);
       return done(error);
     }
   },
