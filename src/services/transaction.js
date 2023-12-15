@@ -66,6 +66,7 @@ const createTransaction = async ({
 
     return newTransaction;
   } catch (error) {
+    console.log(error);
     return null;
   }
 };
@@ -81,6 +82,7 @@ const deleteTransaction = async (id, userId) => {
 
     return transaction;
   } catch (error) {
+    console.log(error);
     return null;
   }
 };
