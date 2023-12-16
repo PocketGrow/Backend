@@ -1,12 +1,12 @@
 module.exports = {
   post: {
-    tags: ["Auth"],
-    description: "Create new user",
+    tags: ["Transaction"],
+    description: "Add new transaction",
     requestBody: {
       content: {
         "application/json": {
           schema: {
-            $ref: "#/components/schemas/Users",
+            $ref: "#/components/schemas/Transaction",
           },
         },
       },
@@ -17,13 +17,10 @@ module.exports = {
         content: {
           "application/json": {
             schema: {
-              $ref: "#/components/schemas/Users",
+              $ref: "#/components/schemas/Transaction",
             },
           },
         },
-      },
-      400: {
-        description: "User already exist",
       },
       405: {
         description: "Invalid input",
@@ -32,5 +29,10 @@ module.exports = {
         description: "Server error",
       },
     },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
 };
