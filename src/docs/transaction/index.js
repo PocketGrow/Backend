@@ -4,14 +4,12 @@ const createTransaction = require("./createTransaction");
 const deleteTransaction = require("./deleteTransaction");
 
 module.exports = {
-  paths: {
-    "/api/transaction": {
-      ...getTransaction,
-      ...createTransaction,
-    },
-    "/api/transaction/{transactionId}": {
-      ...getTransactionById,
-      ...deleteTransaction,
-    },
+  "/api/transaction": {
+    ...getTransaction,
+    ...createTransaction,
+  },
+  "/api/transaction/{transactionId}": {
+    ...getTransactionById,
+    ...deleteTransaction,
   },
 };
