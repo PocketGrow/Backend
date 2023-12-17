@@ -3,10 +3,7 @@ module.exports = {
   info: {
     version: "1.0.1",
     title: "PocketGrow API",
-    description: "PocketGrow REST API Documentation",
-    contact: {
-      email: "pocketgrow@email.com",
-    },
+    description: "PocketGrow API Documentation",
   },
   externalDocs: {
     description: "Github Repo",
