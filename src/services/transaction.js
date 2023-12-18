@@ -21,6 +21,19 @@ const getTransactionById = async (id, userId) => {
   return transaction;
 };
 
+const getLatestTransaction = async (userId) => {
+  const latestTransaction = await prisma.transactions.findFirst({
+    where: {
+      usersId: parseInt(userId),
+    },
+    orderBy: {
+      date: "desc",
+    },
+  });
+
+  return latestTransaction;
+};
+
 const createTransaction = async ({
   name,
   nominal,
@@ -92,4 +105,5 @@ module.exports = {
   getTransactionById,
   createTransaction,
   deleteTransaction,
+  getLatestTransaction,
 };
