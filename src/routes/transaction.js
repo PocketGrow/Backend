@@ -11,6 +11,19 @@ router.get("", authenticateJWTToken, async (req, res, next) => {
   return res.success({ transaction });
 });
 
+router.get("/latest", authenticateJWTToken, async (req, res, next) => {
+  const userId = req.user.id;
+
+  const latestTransaction =
+    await transactionService.getLatestTransaction(userId);
+
+  if (!latestTransaction) {
+    return res.error("Latest transaction not found", 404);
+  }
+
+  return res.success({ transaction: latestTransaction });
+});
+
 router.get("/:id", authenticateJWTToken, async (req, res, next) => {
   const userId = req.user.id;
   const { id } = req.params;
