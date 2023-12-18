@@ -1,15 +1,14 @@
 # PocketGrow BE
 
 ## Tech stack
-
+- Node.js
 - Express.js
+- PostgreSQL
 - Prisma
 
 ## REST API PocketGrow
 
-Bangkit Academy Capstone Project
-
-PocketGrow is an app.
+PocketGrow is an application that provides a future projection of user net worth, allows users to manage their income and expenses efficiently with stock market news updates. With our app, we aim to make financial management and investment decision-making accessible and user-friendly for everyone.
 
 Features:
 
@@ -18,13 +17,40 @@ Features:
 - [x] Income-Expense Tracker
 <!-- - [] Net Worth Projection -->
 
-## Install
 
-    npm install
+## Getting started
+#### Clone the project
 
-## Run the app
+```bash
+  git clone https://github.com/PocketGrow/Backend.git
+```
+#### Go to the project directory
 
-    npm run dev
+```bash
+  cd <your-directory>
+```
+
+#### Install the Required Packages
+ Make sure you have Node and NPM installed
+```
+  npm install
+```
+
+#### Create .env file
+```
+  PORT = 5000
+  JWT_SECRET = <JWT_SECRET>
+  DATABASE_URL="postgresql://<username>:<password>@localhost:5432/<nama_database>?schema=public"
+```
+
+#### Start the server
+
+```bash
+  npm run dev
+```
+
+Open a web browser and visit http://localhost:5000
+
 
 ## Online Documentation
 
