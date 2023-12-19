@@ -16,10 +16,10 @@ const getPrediction = async (money) => {
     );
 
     const formattedData = {
-      interest: data[0],
-      gold: data[1],
-      house: data[2],
-      stock: data[3],
+      interest: data[0].data,
+      gold: data[1].data,
+      house: data[2].data,
+      stock: data[3].data,
     };
     return formattedData;
   } catch (error) {
