@@ -40,6 +40,57 @@ const data = [
     source:
       "https://finansial.bisnis.com/read/20231214/90/1724057/harga-saham-bank-digital-arto-hingga-bbhi-kompak-merangkak-naik",
   },
+  {
+    title: "Harga Emas Hari Ini Naik Lagi, Mumpung Dolar AS Lesu",
+    content:
+      'Harga emas spot (XAUUSD) naik US$7,41 ke US$2.026,96 per troy ons pada perdagangan Senin (18/12/2023) kemarin, menurut data Monex Investindo Futures. Harga emas masih mendapat sentimen positif dari proyeksi pemangkasan suku bunga bank sentral Amerika Serikat (AS) atau yang dikenal dengan The Fed pada tahun depan. Seperti diketahui The Fed memproyeksikan pemangkasan suku bunga sebesar 75 basis poin. Dengan demikian kemungkinan akan ada tiga kali pemangkasan jika masing-masing dilakukan sebesar 25 basis poin. "Namun, pelaku pasar melihat The Fed bisa memangkas hingga lima kali dan yang pertama akan dilakukan pada Maret 2024. Proyeksi pemangkasan suku bunga tersebut membuat imbal hasil (yield) Treasury tenor 10 tahun saat ini tertahan di level terendah dalam hampir lima bulan terakhir, harga emas pun menjadi lebih menarik," papar Monex dalam laporan tertulis. Suku bunga yang lebih rendah mengurangi opportunity cost dari memegang emas batangan yang tidak memberikan imbal hasil (non-yielding) dan membebani dolar. Dolar AS tergelincir ke level terendah dalam empat bulan, sementara imbal hasil obligasi AS bertenor 10 tahun turun ke level terendah sejak akhir Juli. Sejumlah 17 dari 19 pejabat Fed memproyeksikan suku bunga yang lebih rendah pada akhir tahun 2024, setelah bank sentral mempertahankan suku bunga stabil untuk pertemuan ketiga berturut-turut, seperti yang diperkirakan secara luas',
+    headerImg:
+      "https://images.bisnis.com/posts/2023/12/19/1725151/bio-emas-7.jpg",
+    author: "Hafiyyan",
+    source:
+      "https://market.bisnis.com/read/20231219/235/1725151/harga-emas-hari-ini-naik-lagi-mumpung-dolar-as-lesu",
+  },
+  {
+    title: "IHSG Ditutup Melejit 7.187, Saham KAEF, IRRA & PEHA Paling Cuan",
+    content:
+      "Indeks Harga Saham Gabungan (IHSG) ditutup naik ke posisi 7.187 pada penutupan perdagangan hari ini, Selasa (19/12/2023). Saham KAEF, IRRA, PEHA hingga UNDG jadi saham paling cuan.  Berdasarkan data RTI Business pukul 16.00 WIB, indeks komposit parkir di level 7.187, naik 0,96% atau 68 poin. Sepanjang perdagangan indeks sempat bergerak melemah ke posisi 7.112 hingga posisi tertinggi di level 7.187 setelah dibuka di posisi 7.119 per saham. Adapun sebanyak 19,59 miliar saham beredar dengan transaksi mencapai Rp9,85 triliun dengan transaksi terjadi sebanyak 1,14 juta kali. IHSG ditopang oleh 304 saham naik, 228 saham turun dan 232 saham stagnan. Kapitalisasi pasar tercatat sebesar Rp11.579,48 triliun.  Mayoritas indeks sektoral terpantau naik. Sektor basic materials naik 1,50%, konsumer siklikal naik 0,68%, sektor energi naik 1,06%, finance naik 0,58%, sektor kesehatan melompat 1,61%, industrial naik 0,01%, infrastruktur naik 1,65%, konsumer non siklikal naik 0,77%, sektor teknologi naik 0,60% dan transportasi naik 1,63%. Sementara itu hanya sektor properti yang turun 0,22%.  Adapun saham yang berjejer di deretan top gainers adalah PT Kimia Farma Tbk. (KAEF) yang naik 24,90% ke posisi Rp1.580 per saham. Disusul saham PT Itama Ranoraya Tbk. (IRRA) naik 24,82% di posisi Rp855 per saham.",
+    headerImg:
+      "https://images.bisnis.com/posts/2023/12/19/1725352/26072023-bi-hil-21-ihsg-5.jpg",
+    author: "Artha Adventy",
+    source:
+      "https://market.bisnis.com/read/20231219/7/1725352/ihsg-ditutup-melejit-7187-saham-kaef-irra-peha-paling-cuan",
+  },
+  {
+    title:
+      "Pasar Saham Indonesia Berpotensi Banjir Dana Asing pada 2024, Cek Pemicunya",
+    content:
+      "Pasar saham Indonesia disebut masih menarik bagi investor asing untuk berinvestasi sepanjang 2024. Beberapa faktor yang memengaruhi keputusan investor asing adalah eskalasi konflik geopolitik, keputusan suku bunga The Fed, serta valuasi IHSG yang masih lebih rendah.  Direktur Mandiri Sekuritas Oki Ramadhana mengatakan secara umum, pasar Indonesia tetap menarik di mata investor asing jika dibandingkan dengan negara emerging market lainnya. Aliran dana masuk dari investor asing sepanjang 2024 akan membaik dibandingkan dengan tahun ini.  “Asing banyak yang masih masuk ke saham BUMN. Kalau saya lihat trennya ke depan asing masih akan tetap masuk ke market kita, dan saya yakin itu akan lebih aktif lagi,” kata Oki dalam Media Gathering, Selasa (19/12/2023). Oki menambahkan sentimen positif yang mendorong investor asing masuk ke pasar saham adalah ekspektasi The Fed yang akan mulai menurunkan suku bunga tahun depan. Kondisi ini akan memberikan kepastian dan mendongkrak valuasi IHSG.  Menurut Oki, price earning (PE) IHSG saat ini berada di posisi rendah dibandingkan dengan normalnya. PE IHSG berada di level 13-13,5 kali sementara PE normal indeks adalah sebesar 15 kali. Selain itu, hal lain yang bisa mendorong minat investor asing masuk ke pasar saham Indonesia adalah potensi IPO perusahaan dengan kapitalisasi pasar jumbo pada 2024.",
+    headerImg:
+      "https://images.bisnis.com/posts/2023/12/19/1725334/01082023-bi-jat-26-ihsg-1.JPG",
+    author: "Artha Adventy",
+    source:
+      "https://market.bisnis.com/read/20231219/7/1725334/pasar-saham-indonesia-berpotensi-banjir-dana-asing-pada-2024-cek-pemicunya",
+  },
+  {
+    title: "William Tanuwijaya Kembali Jual Saham GOTO Senilai Rp70,12 Miliar",
+    content:
+      "Komisaris PT GoTo Gojek Tokopedia Tbk. (GOTO) William Tanuwijaya kembali melepas kepemilikan sahamnya di GOTO. Kali ini, William menjual sebanyak 764,6 juta saham Seri A GOTO miliknya.  Dalam keterbukaan informasi Bursa Efek Indonesia (BEI), William menjelaskan dirinya memiliki sebanyak 20,64 miliar saham Seri A dan Seri B, atau setara dengan 1,72% dari modal disetor dan ditempatkan oleh GOTO. Rinciannya, sebanyak 8,06 miliar saham adalah saham seri A dan 12,58 miliar saham adalah saham Seri B.`Jumlah saham yang dijual adalah 764,6 juta saham Seri A yang dimiliki secara langsung atau setara dengan 0,06% dari modal ditempatkan dan disetor GOTO,` kata William, Senin (18/12/2023).  Dia menjelaskan, harga penjualan rata-rata saham Seri A ini adalah pada harga Rp91,7155 per saham. William melakukan penjualan saham ini pada tanggal 14-18 Desember 2023'Tujuan dari transaksi ini adalah untuk pembayaran fasilitas kredit,' ujar William. Dengan harga rata-rata penjualan dan jumlah saham yang dijual tersebut, maka William diperkirakan meraup dana segar sebesar Rp70,12 miliar dari penjualan saham GOTO.",
+    headerImg:
+      "https://images.bisnis.com/posts/2023/12/18/1724976/tokopedia_171220.jpg",
+    author: "Annisa Kurniasari Saumi",
+    source:
+      "https://market.bisnis.com/read/20231218/192/1724976/william-tanuwijaya-kembali-jual-saham-goto-senilai-rp7012-miliar",
+  },
+  {
+    title: "Bank Sentral Makin Dovish, Prospek Pasar Saham Kian Naik?",
+    content:
+      "Direktur Investasi PT Kisi Asset Management, Arfan F. Karniody optimistis terhadap pemulihan pasar keuangan RI di 2024 seiring dengan kuatnya prospek percepatan pemangkasan suku bunga The Fed di Kuartal awal 2024.    Arfan menyebutkan Sinyal dovish The Fed melebihi ekspektasi pasar sehingga peluang bursa saham akan lebih baik di 2024. Sementara terkait Bank Indonesia, kebijakannya akan sangat tergantung dari perkembangan pasar global dan kondisi inflasi serta pergerakan nilai tukar Rupiah. Seperti apa pelaku pasar melihat arah kebijakan bank sentral? Selengkapnya simak dialog Anneke Wijaya dengan Direktur Investasi PT Kisi Asset Management, Arfan F. Karniody dalam Power Lunch,CNBCIndonesia (Selasa 19/12/2023)",
+    headerImg:
+      "https://akcdn.detik.net.id/visual/2022/04/26/ilustrasi-pasar-saham_169.jpeg?w=715&q=90",
+    author: "MY MONEY",
+    source:
+      "https://www.cnbcindonesia.com/mymoney/20231219142000-74-498564/bank-sentral-makin-dovish-prospek-pasar-saham-kian-baik",
+  },
 ];
 
 module.exports = seedNews;
