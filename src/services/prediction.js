@@ -16,9 +16,32 @@ const getPrediction = async (money) => {
     );
 
     const formattedData = {
-      interest: data[0].data,
-      gold: data[1].data,
-      house: data[2].data,
+      interest: {
+        calculated: [
+          data[0].data.calculated[0],
+          data[0].data.calculated[2],
+          data[0].data.calculated[4],
+          data[0].data.calculated[9],
+        ],
+        rates: [
+          data[0].data.rates[0],
+          data[0].data.rates[2],
+          data[0].data.rates[4],
+          data[0].data.rates[9],
+        ],
+      },
+      gold: [
+        data[1].data[0],
+        data[1].data[2],
+        data[1].data[4],
+        data[1].data[9],
+      ],
+      house: [
+        data[2].data[0],
+        data[2].data[2],
+        data[2].data[4],
+        data[2].data[9],
+      ],
       stock: data[3].data,
     };
     return formattedData;
