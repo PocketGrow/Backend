@@ -90,6 +90,39 @@ module.exports = {
           name: "transaction",
         },
       },
+      Prediction: {
+        type: "object",
+        properties: {
+          interest: {
+            type: "object",
+            properties: {
+              calculated: {
+                type: "array",
+                example: 28489.465713500977,
+              },
+              rates: {
+                type: "array",
+                example: 5.697893142700195,
+              },
+            },
+          },
+          gold: {
+            type: "array",
+            example: 2715.66064453125,
+          },
+          house: {
+            type: "array",
+            example: 3.1216812133789062,
+          },
+          stock: {
+            type: "array",
+            example: 6394.5908203125,
+          },
+        },
+        xml: {
+          name: "Prediction",
+        },
+      },
     },
     securitySchemes: {
       bearerAuth: {

@@ -9,5 +9,8 @@ module.exports = {
     {
       name: "Transaction",
     },
+    {
+      name: "Prediction",
+    },
   ],
 };
