@@ -1,7 +1,7 @@
 module.exports = {
   get: {
     tags: ["Transaction"],
-    description: "Get Single Latest Transaction",
+    description: "Get the latest transaction",
     responses: {
       200: {
         description: "OK",

@@ -98,25 +98,25 @@ module.exports = {
             properties: {
               calculated: {
                 type: "array",
-                example: 28489.465713500977,
+                example: [398852.5199890137, 398382.5492858887],
               },
               rates: {
                 type: "array",
-                example: 5.697893142700195,
+                example: [5.697893142700195, 5.691179275512695],
               },
             },
           },
           gold: {
             type: "array",
-            example: 2715.66064453125,
+            example: [2715.66064453125, 2836.361328125],
           },
           house: {
             type: "array",
-            example: 3.1216812133789062,
+            example: [3.1216812133789062, 3.201002597808838],
           },
           stock: {
             type: "array",
-            example: 6394.5908203125,
+            example: [6394.5908203125, 6353.67822265625, 6314.1103515625],
           },
         },
         xml: {

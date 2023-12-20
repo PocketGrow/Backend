@@ -3,10 +3,11 @@ module.exports = {
   info: {
     version: "1.0.1",
     title: "PocketGrow API",
-    description: "PocketGrow API Documentation",
+    description:
+      "API documentation for PocketGrow, an application that provides a future projection of user net worth, manages income and expenses, and offers financial news updates",
   },
   externalDocs: {
-    description: "Github Repo",
+    description: "GitHub Repository",
     url: "https://github.com/PocketGrow",
   },
 };

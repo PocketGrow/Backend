@@ -1,7 +1,7 @@
 module.exports = {
   get: {
     tags: ["News"],
-    description: "Get News Recommendation",
+    description: "Returns recommended news articles",
     responses: {
       200: {
         description: "OK",

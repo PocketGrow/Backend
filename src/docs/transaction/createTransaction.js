@@ -1,7 +1,7 @@
 module.exports = {
   post: {
     tags: ["Transaction"],
-    description: "Add new transaction",
+    description: "Create a new transaction",
     requestBody: {
       content: {
         "application/json": {

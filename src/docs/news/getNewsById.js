@@ -1,12 +1,12 @@
 module.exports = {
   get: {
     tags: ["News"],
-    description: "Get News by Id",
+    description: "Get a specific news article based on its id.",
     parameters: [
       {
         name: "newsId",
         in: "path",
-        description: "ID of news to return",
+        description: "id of news to return",
         required: true,
         schema: {
           type: "integer",

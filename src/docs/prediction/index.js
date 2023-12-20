@@ -2,12 +2,12 @@ module.exports = {
   "/api/prediction?money=5000": {
     get: {
       tags: ["Prediction"],
-      description: "Get Prediction",
+      description: "Get prediction values for interest, gold, house, and stock",
       parameters: [
         {
           name: "money",
           in: "query",
-          description: "ID of news to return",
+          description: "The nominal amount of money to be predicted",
           required: true,
           schema: {
             type: "integer",
