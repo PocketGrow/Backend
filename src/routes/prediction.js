@@ -10,7 +10,7 @@ router.get("", authenticateJWTToken, async (req, res, next) => {
 
   if (!data) return res.error("Please try again later", 500);
 
-  return res.success({ data });
+  return res.success({ ...data });
 });
 
 module.exports = router;
