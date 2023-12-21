@@ -1,12 +1,12 @@
 module.exports = {
   delete: {
     tags: ["Transaction"],
-    description: "Delete transaction",
+    description: "Deletes a transaction by its id",
     parameters: [
       {
         name: "transactionId",
         in: "path",
-        description: "ID of transaction to return",
+        description: "id of the transaction to delete",
         required: true,
         schema: {
           type: "integer",

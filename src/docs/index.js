@@ -5,6 +5,7 @@ const tags = require("./tags");
 const auth = require("./auth");
 const news = require("./news");
 const transaction = require("./transaction");
+const prediction = require("./prediction");
 
 module.exports = {
   ...basicInfo,
@@ -15,5 +16,6 @@ module.exports = {
     ...auth,
     ...news,
     ...transaction,
+    ...prediction,
   },
 };

@@ -1,12 +1,12 @@
 module.exports = {
   get: {
     tags: ["Transaction"],
-    description: "Get Transaction by Id",
+    description: "Get a specific transaction based on its id",
     parameters: [
       {
         name: "transactionId",
         in: "path",
-        description: "ID of transaction to return",
+        description: "id of transaction to return",
         required: true,
         schema: {
           type: "integer",

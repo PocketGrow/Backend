@@ -1,7 +1,7 @@
 module.exports = {
   post: {
     tags: ["Auth"],
-    description: "Login user",
+    description: "Allows registered users to log in",
     requestBody: {
       content: {
         "application/json": {

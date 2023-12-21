@@ -1,7 +1,7 @@
 module.exports = {
   get: {
     tags: ["Transaction"],
-    description: "Get All Transaction",
+    description: "Get a list of all transactions",
     responses: {
       200: {
         description: "OK",
