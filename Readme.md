@@ -1,4 +1,4 @@
-# PocketGrow BE
+# PocketGrow-Backend
 
 ## Tech stack
 - Node.js
@@ -15,7 +15,7 @@ Features:
 - [x] Authentication : Register, Login
 - [x] News Session
 - [x] Income-Expense Tracker
-<!-- - [] Net Worth Projection -->
+- [x] Net Worth Projection
 
 
 ## Getting started
@@ -52,6 +52,6 @@ Features:
 Open a web browser and visit http://localhost:5000
 
 
-## Online Documentation
+## PocketGrow API Documentation
 
 - [Swagger API Documentation]()
